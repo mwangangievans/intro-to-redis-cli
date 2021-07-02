@@ -15,3 +15,10 @@
 127.0.0.1:6379> zrank users "ken rodgers"
 (integer) 0
 127.0.0.1:6379>  
+
+//displaying a all records in a sorted set
+127.0.0.1:6379> zrange users 0 -1
+1) "ken rodgers"
+2) "john evans"
+3) "Evans tonny"
+127.0.0.1:6379>  

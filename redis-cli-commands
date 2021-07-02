@@ -62,3 +62,45 @@ OK
 127.0.0.1:6379> get foo
 (nil)
 127.0.0.1:6379>  
+
+//setting server name
+127.0.0.1:6379> set server:name Evans
+OK
+
+//getting the server name
+127.0.0.1:6379> get server:name
+"Evans"
+
+//setting server port
+127.0.0.1:6379> set server:port 8000
+OK
+
+getting the server port
+127.0.0.1:6379> get server:port
+"8000"
+
+//setting a string 
+127.0.0.1:6379> set greeting "hello world"
+OK
+127.0.0.1:6379> get greeting
+"hello world"
+
+
+//setting a string to expire after a period of time
+127.0.0.1:6379> expire greeting 50
+(integer) 1
+
+//checking time left to expire
+127.0.0.1:6379> ttl greeting
+(integer) 21
+127.0.0.1:6379> ttl greeting
+(integer) 18
+
+//if time set expires it will output a negative
+127.0.0.1:6379> ttl greeting
+(integer) -2
+
+//if time expires it will output a nil
+127.0.0.1:6379> get greeting
+(nil)
+127.0.0.1:6379>

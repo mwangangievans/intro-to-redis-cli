@@ -1,0 +1,58 @@
+//creating a list called people
+127.0.0.1:6379> lpush people "Evans"
+(integer) 1
+127.0.0.1:6379> lpush people "Faith"
+(integer) 2
+127.0.0.1:6379> lpush people "larry"
+(integer) 3
+127.0.0.1:6379> lpush people "tonny"
+(integer) 4
+127.0.0.1:6379> lpush people "ken"
+(integer) 5
+
+//displaying the data inside the list
+127.0.0.1:6379> lrange people 0 -1
+1) "ken"
+2) "tonny"
+3) "larry"
+4) "Faith"
+5) "Evans"
+
+//getting the data at a particular index
+127.0.0.1:6379> lrange people 1 2
+1) "tonny"
+2) "larry"
+
+// rpush creates a record at the end of the index
+127.0.0.1:6379> rpush people "mike"
+(integer) 6
+127.0.0.1:6379> lrange 0 -1
+(error) ERR wrong number of arguments for 'lrange' command
+127.0.0.1:6379> lrange people 0 -1
+1) "ken"
+2) "tonny"
+3) "larry"
+4) "Faith"
+5) "Evans"
+6) "mike"
+
+
+//deleting the top record in  a list
+127.0.0.1:6379> lpop people
+"ken"
+127.0.0.1:6379> lrange people 0 -1
+1) "tonny"
+2) "larry"
+3) "Faith"
+4) "Evans"
+5) "mike"
+
+//deleting the record in the right/last in the index
+127.0.0.1:6379> rpop people
+"mike"
+127.0.0.1:6379> lrange people 0 -1
+1) "tonny"
+2) "larry"
+3) "Faith"
+4) "Evans"
+127.0.0.1:6379>  

@@ -56,3 +56,29 @@
 3) "Faith"
 4) "Evans"
 127.0.0.1:6379>  
+
+////////
+
+127.0.0.1:6379> lrange  people  0 -1
+1) "jossy"
+2) "tonny"
+3) "larry"
+4) "Faith"
+5) "Evans"
+6) "me"
+
+
+///inserting a record in the middle of other records in a list
+127.0.0.1:6379> linsert people before "tonny"  "owino"
+(integer) 7
+127.0.0.1:6379> lrange 0 -1
+(error) ERR wrong number of arguments for 'lrange' command
+127.0.0.1:6379> lrange people 0 -1
+1) "jossy"
+2) "owino"
+3) "tonny"
+4) "larry"
+5) "Faith"
+6) "Evans"
+7) "me"
+127.0.0.1:6379>  

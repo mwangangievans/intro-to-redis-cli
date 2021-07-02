@@ -1,0 +1,57 @@
+127.0.0.1:6379> hset user:evans name "Evans Muinde"
+(integer) 1
+127.0.0.1:6379> hset user:evans email "muindemwangangi2@gmail.com"
+(integer) 1
+127.0.0.1:6379> hget user:evans name
+"Evans Muinde"
+127.0.0.1:6379> hget user:evans email
+"muindemwangangi2@gmail.com"
+127.0.0.1:6379> hgetall user:evans
+1) "name"
+2) "Evans Muinde"
+3) "email"
+4) "muindemwangangi2@gmail.com"
+127.0.0.1:6379> 
+
+///////setting several keys in hash 
+127.0.0.1:6379> hmset user:evans name "muinde mwangangi" email "muinde@gmail.com" age "23"
+OK
+
+////displaying the entire record
+127.0.0.1:6379> hgetall user:evans
+1) "name"
+2) "muinde mwangangi"
+3) "email"
+4) "muinde@gmail.com"
+5) "age"
+6) "23"
+
+//displaying keys in a record
+127.0.0.1:6379> hkeys user:evans
+1) "name"
+2) "email"
+3) "age"
+
+////displaying values in a record
+127.0.0.1:6379> hvals user:evans
+1) "muinde mwangangi"
+2) "muinde@gmail.com"
+3) "23"
+
+/////increasing a record
+127.0.0.1:6379> hincrby user:evans age 5
+(integer) 28
+
+///deleting a record in hash
+127.0.0.1:6379> hdel user:evans age
+(integer) 1
+127.0.0.1:6379> hgetall user:evans
+1) "name"
+2) "muinde mwangangi"
+3) "email"
+4) "muinde@gmail.com"
+
+////displaying length of keys in hash
+127.0.0.1:6379> hlen user:evans
+(integer) 2
+127.0.0.1:6379>

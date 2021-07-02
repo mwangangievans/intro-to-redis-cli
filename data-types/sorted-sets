@@ -22,3 +22,10 @@
 2) "john evans"
 3) "Evans tonny"
 127.0.0.1:6379>  
+
+/////increase a score of a record 
+127.0.0.1:6379> zincrby users 1 "Evans tonny"
+"1998"
+127.0.0.1:6379> zincrby users 10 "Evans tonny"
+"2008"
+127.0.0.1:6379>   

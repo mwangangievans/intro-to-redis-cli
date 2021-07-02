@@ -1,0 +1,64 @@
+//checking connection to redis server
+127.0.0.1:6379> ping
+PONG
+127.0.0.1:6379> ping
+PONG
+
+//echo a string 
+127.0.0.1:6379> ECHO 'hello world'
+"hello world"
+
+//quit command
+127.0.0.1:6379> quit
+
+//starting redis cli
+C:\>redis-cli
+
+//checking server connection
+127.0.0.1:6379> ping
+PONG
+
+//setting a value
+127.0.0.1:6379> SET foo 100
+OK
+
+//getting the set value
+127.0.0.1:6379> GET FOO
+(nil)
+127.0.0.1:6379> GET foo
+"100"
+
+//setting a value to a string
+127.0.0.1:6379> set bar "hello world"
+OK
+
+//getting the set string
+127.0.0.1:6379> get bar
+"hello world"
+
+//increasing a value
+127.0.0.1:6379> incr foo
+(integer) 101
+
+//decreasing a value
+127.0.0.1:6379> decr foo
+(integer) 100
+
+//checking if a value exists
+127.0.0.1:6379> exist foo
+(error) ERR unknown command 'exist'
+127.0.0.1:6379> exists foo
+(integer) 1
+127.0.0.1:6379> exists fool
+(integer) 0
+127.0.0.1:6379> del bar
+(integer) 1
+127.0.0.1:6379> exists bar
+(integer) 0
+
+//deleting everything
+127.0.0.1:6379> flushall
+OK
+127.0.0.1:6379> get foo
+(nil)
+127.0.0.1:6379>  

@@ -1,0 +1,17 @@
+
+//creating a sorted set  and a score
+127.0.0.1:6379> zadd users 1981 "john evans"
+(integer) 1
+127.0.0.1:6379> zadd users  1997 "Evans tonny"
+(integer) 1
+127.0.0.1:6379> zadd users  1956 "ken rodgers"
+(integer) 1
+
+//find the position of a record based on score ranking
+127.0.0.1:6379> zrank users "Evans tonny"
+(integer) 2
+127.0.0.1:6379> zrank users "kenrodgers"
+(nil)
+127.0.0.1:6379> zrank users "ken rodgers"
+(integer) 0
+127.0.0.1:6379>  

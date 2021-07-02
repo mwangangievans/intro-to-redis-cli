@@ -104,3 +104,46 @@ OK
 127.0.0.1:6379> get greeting
 (nil)
 127.0.0.1:6379>
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+//setting a string to expire in one command line
+C:\>redis-cli
+127.0.0.1:6379> setex greeting 30 "hello from redis"
+OK
+127.0.0.1:6379> ttl greeting
+(integer) 21
+127.0.0.1:6379> setex greeting 130 "hello its me again"
+OK
+127.0.0.1:6379> ttl greeting
+(integer) 123
+
+//setting a value to persist
+127.0.0.1:6379> persist greeting
+(integer) 1
+127.0.0.1:6379> ttl greeting
+(integer) -1
+127.0.0.1:6379> get greeting
+"hello its me again"
+
+//setting multiple keys once 
+127.0.0.1:6379> mset key1 "hello key1" key2 "hello key2"
+OK
+127.0.0.1:6379> get key1
+"hello key1"
+127.0.0.1:6379> get key2
+"hello key2"
+
+///append a key inside another key 
+127.0.0.1:6379> append key1 " its me evans"
+(integer) 23
+127.0.0.1:6379> get key1
+"hello key1 its me evans"
+127.0.0.1:6379> rename key1 evans
+OK
+127.0.0.1:6379> get key1
+(nil)
+127.0.0.1:6379> get evans
+"hello key1 its me evans"
+127.0.0.1:6379>
